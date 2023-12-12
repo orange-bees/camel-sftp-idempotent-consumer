@@ -12,14 +12,18 @@
     <artifactId>camel-sftp-idempotent-consumer</artifactId>
     <version>1.0.0</version>
     <name>camel-sftp-idempotent-consumer</name>
-    <description>Demo project for Spring Boot</description>
+    <description>This is an example application that copies files from an SFTP server to a local drive.
+    The application is designed to only copy files that have not been copied to the local system previously.</description>
     <properties>
         <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <camel.version>4.2.0</camel.version>
         <hawtio.version>4.0-M4</hawtio.version>
     </properties>
     
     <inceptionYear>2023</inceptionYear>
+
     <developers>
         <developer>
             <id>jyeary</id>
@@ -204,6 +208,11 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
             </plugin>
         </plugins>
     </build>
