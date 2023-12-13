@@ -57,11 +57,15 @@ public class SFTPRoute extends RouteBuilder {
                 // Use env to fetch the idempotent.file name since {{}} does not work with File in this case.
                 .idempotentConsumer(header("CamelFileName"),
                         FileIdempotentRepository.fileIdempotentRepository(new File(env.getProperty("idempotentent.file"))))
+                .id("fileIdempotentRepository")
                 .process((Exchange exchange) -> {
                     log.info("This file is being processed the first time -- {}", exchange.getIn().getHeader("CamelFileName"));
                 })
+                .id("fileProcessor")
                 .log("${body}")
+                .id("bodyLogger")
                 .to("file://{{file.output.uri}}")
+                .id("toFile")
                 .end();
 
     }
