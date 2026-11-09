@@ -15,6 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Verifies the {@link FileIdempotentRepository} behavior {@link SFTPRoute} relies on:
  * a file name is accepted once and the state is persisted across restarts.
+ *
+ * @author <a href="mailto:john.yeary@orangebees.com">John Yeary</a>
+ * @version 2.0.0
+ * @since 2.0.0
  */
 class IdempotentRepositoryTest {
 

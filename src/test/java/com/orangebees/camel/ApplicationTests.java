@@ -16,6 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+/**
+ * Verifies that the Spring context and the SFTP Camel route load correctly.
+ *
+ * @author <a href="mailto:john.yeary@orangebees.com">John Yeary</a>
+ * @version 2.0.0
+ * @since 2.0.0
+ */
 @SpringBootTest
 class ApplicationTests {
 

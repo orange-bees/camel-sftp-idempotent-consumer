@@ -4,6 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
+Current version: 2.0.0 (the pre-Boot-4 code is tagged `1.0`; classes that existed then carry `@since 1.0.0` in Javadoc, new code `@since 2.0.0`).
+
 Spring Boot 4.1.2 / Apache Camel 4.23.0 / Hawtio 5.3.0 (`hawtio-springboot4`) / Java 25 app that polls an SFTP server and copies files to a local directory, copying each file only once (Idempotent Consumer pattern). Hawtio is embedded for monitoring at http://localhost:8080/actuator/hawtio.
 
 ## Commands

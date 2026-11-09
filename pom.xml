@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.orangebees</groupId>
     <artifactId>camel-sftp-idempotent-consumer</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
     <name>camel-sftp-idempotent-consumer</name>
     <description>This is an example application that copies files from an SFTP server to a local drive.
     The application is designed to only copy files that have not been copied to the local system previously.</description>
