@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>4.1.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.orangebees</groupId>
@@ -15,12 +15,12 @@
     <description>This is an example application that copies files from an SFTP server to a local drive.
     The application is designed to only copy files that have not been copied to the local system previously.</description>
     <properties>
-        <java.version>17</java.version>
-        <maven.compiler.release>17</maven.compiler.release>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <camel.version>4.2.0</camel.version>
-        <hawtio.version>4.0-M4</hawtio.version>
+        <java.version>25</java.version>
+        <maven.compiler.release>25</maven.compiler.release>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <camel.version>4.23.0</camel.version>
+        <hawtio.version>5.3.0</hawtio.version>
     </properties>
     
     <inceptionYear>2023</inceptionYear>
@@ -92,6 +92,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -122,26 +128,11 @@
             <artifactId>camel-ftp-starter</artifactId>
         </dependency>
 
-        <!-- Logging -->
+        <!-- Logging: Log4j2 only; spring-boot-starter-logging (Logback) is excluded below -->
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.22.0</version>
-            <scope>runtime</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.22.0</version>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j2-impl</artifactId>
-            <version>2.22.0</version>
-            <scope>runtime</scope>
-        </dependency>		
 
         <!-- Additional Frameworks -->
         <dependency>
@@ -179,7 +170,7 @@
         </dependency>
         <dependency>
             <groupId>io.hawt</groupId>
-            <artifactId>hawtio-springboot</artifactId>
+            <artifactId>hawtio-springboot4</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -213,7 +204,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.14.1</version>
             </plugin>
         </plugins>
     </build>
