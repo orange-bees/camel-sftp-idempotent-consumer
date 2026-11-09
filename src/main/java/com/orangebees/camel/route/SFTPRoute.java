@@ -15,7 +15,6 @@
  */
 package com.orangebees.camel.route;
 
-import java.io.File;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
@@ -25,12 +24,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+
 /**
  * An example SFTP Route that uses a file based {@link IdempotentConsumer} to
  * keep track of processed files.
  *
  * @author <a href="mailto:john.yeary@orangebees.com">John Yeary</a>
- * @version 1.0.0
+ * @version 2.0.0
  * @since 1.0.0
  */
 @Component
@@ -57,7 +58,7 @@ public class SFTPRoute extends RouteBuilder {
                 .routeId("sftpRoute")
                 // Use env to fetch the idempotent.file name since {{}} does not work with File in this case.
                 .idempotentConsumer(header("CamelFileName"),
-                        FileIdempotentRepository.fileIdempotentRepository(new File(env.getProperty("idempotentent.file"))))
+                        FileIdempotentRepository.fileIdempotentRepository(new File(env.getProperty("idempotent.file"))))
                 .id("fileIdempotentRepository")
                 .process((Exchange exchange) -> {
                     log.info("This file is being processed the first time -- {}", exchange.getIn().getHeader("CamelFileName"));
