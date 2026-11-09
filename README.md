@@ -1,5 +1,7 @@
 # Spring Boot Camel SFTP Idempotent Consumer Example
 
+**Version:** 1.0.0
+
 This is an example application that copies files from an SFTP server to a local drive. 
 The application is designed to only copy files that have not been copied to the local system previously.
 
